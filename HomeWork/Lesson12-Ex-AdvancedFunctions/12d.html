@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+  <head></head>
+  <body>
+    <button onclick="
+      buttonFunc();
+    " class="js-button">Press!</button>
+
+    <script>
+      function buttonFunc() {
+        const button = document.querySelector('.js-button');
+
+        button.innerHTML = 'Loading...';
+
+        setTimeout(function() {
+          button.innerHTML = 'Finised!';
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

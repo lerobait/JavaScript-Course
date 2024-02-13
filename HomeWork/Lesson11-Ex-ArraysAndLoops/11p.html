@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+  <head></head>
+  <body>
+    <script>
+      function findWord(words) {
+
+        let index = -1;
+
+        for (let i = 0; i < words.length; i++) {
+          const word = words[i];
+
+          if (word === 'search') {
+            index = i;
+            break;
+          }
+        }
+
+        console.log(index);
+      }
+      findWord(['hello', 'world', 'search', 'good', 'search']);
+    </script>
+  </body>
+</html>

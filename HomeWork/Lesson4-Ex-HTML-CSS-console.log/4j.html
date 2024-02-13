@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Buttons</title>
+
+    <style>
+      .add-button {
+        background-color: yellow;
+        border-style: solid;        
+      }
+
+      .buy-button {
+        background-color: rgb(199, 163, 3);
+        border-style: solid;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Adults Plain Cotton T-shirt</p>
+
+    <p>Price: $7.99</p>
+
+    <button class="add-button" onclick="alert('Added')">
+      Add to cart
+    </button>
+
+    <button class="buy-button" onclick="
+      console.log('Loading...');
+      alert('Purchased');
+    ">
+      Buy now
+    </button>
+
+    <script>
+      console.log('Welcome!');
+    </script>
+  </body>
+</html>

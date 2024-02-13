@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+  <head></head>
+  <body>
+    <button class="js-button">
+      Press!
+    </button>
+
+    <script>
+      document.querySelector('.js-button')
+        .addEventListener('click', () => {
+          buttonFunc();
+        });
+
+      function buttonFunc() {
+        setTimeout(() => {
+          document.querySelector('.js-button').innerHTML = 'Finised!';
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

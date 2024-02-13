@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+  <head></head>
+  <body>
+    <button onclick="
+      buttonFunc();
+    ">Add to cart</button>
+
+    <p class="js-paragraph"></p>
+
+    <script>
+      function buttonFunc() {
+        const paragraph = document.querySelector('.js-paragraph');
+
+        paragraph.innerHTML = 'Added';
+
+        setTimeout(function() {
+          paragraph.innerHTML = '';
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

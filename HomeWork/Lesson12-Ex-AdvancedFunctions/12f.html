@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+  <head></head>
+  <body>
+    <button onclick="
+      buttonFunc();
+    ">Add to cart</button>
+
+    <p class="js-paragraph"></p>
+
+    <script>
+      //let pressedButton = false;
+      let timeoutId;
+
+      function buttonFunc() {
+        const paragraph = document.querySelector('.js-paragraph');
+
+        paragraph.innerHTML = 'Added';
+
+        /*
+        if (!pressedButton) {
+          timeoutId = setTimeout(function() {
+            paragraph.innerHTML = '';
+          }, 2000);
+
+          pressedButton = true;
+        } else {
+          clearTimeout(timeoutId);
+          pressedButton = false;
+        }
+        */
+
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(function() {
+            paragraph.innerHTML = '';
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
