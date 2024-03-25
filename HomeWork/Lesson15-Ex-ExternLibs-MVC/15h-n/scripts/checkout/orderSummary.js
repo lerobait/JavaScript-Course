@@ -10,6 +10,7 @@ import { formatCurrency } from '../utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
 import { renderPaymentSummary } from './paymentSummary.js';
+import { renderCheckoutHeader } from './checkoutHeader.js';
 
 export function renderOrderSummary() {
   let cartSummaryHTML = '';
@@ -131,6 +132,7 @@ export function renderOrderSummary() {
           const productId = link.dataset.productId;
           removeFromCart(productId);
 
+          renderCheckoutHeader();
           updateCartQuantity();
           renderOrderSummary();
           renderPaymentSummary();
