@@ -1,5 +1,6 @@
 import { getOrder } from "../data/orders.js";
 import { getProduct, loadProductsFetch } from "../data/products.js";
+import { calculateCartQuantity } from "../data/cart.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 
 async function loadPage() {
@@ -27,14 +28,17 @@ async function loadPage() {
   const percentProgress =
     ((today - orderTime) / (deliveryTime - orderTime)) * 100;
 
+  const deliveredMessage =
+    today < deliveryTime ? "Arriving on" : "Delivered on";
+
   const trackingHTML = `
     <a class="back-to-orders-link link-primary" href="orders.html">
       View all orders
     </a>
     <div class="delivery-date">
-      Arriving on ${dayjs(productDetails.estimatedDeliveryTime).format(
-        "dddd, MMMM D"
-      )}
+      ${deliveredMessage} ${dayjs(productDetails.estimatedDeliveryTime).format(
+    "dddd, MMMM D"
+  )}
     </div>
     <div class="product-info">
       ${product.name}
@@ -65,7 +69,29 @@ async function loadPage() {
     </div>
   `;
 
+  function updateCartQuantity() {
+    const cartQuantity = calculateCartQuantity();
+
+    document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+  }
+
+  updateCartQuantity();
+
   document.querySelector(".js-order-tracking").innerHTML = trackingHTML;
+
+  document.querySelector(".js-search-button").addEventListener("click", () => {
+    const search = document.querySelector(".js-search-bar").value;
+    window.location.href = `amazon.html?search=${search}`;
+  });
+
+  document
+    .querySelector(".js-search-bar")
+    .addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        const searchTerm = document.querySelector(".js-search-bar").value;
+        window.location.href = `amazon.html?search=${searchTerm}`;
+      }
+    });
 }
 
 loadPage();
